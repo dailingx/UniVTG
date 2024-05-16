@@ -143,6 +143,7 @@ def get_empty_state():
     return {"total_tokens": 0, "messages": []}
 
 def submit_message(prompt, state):
+    print("begin submit_message")
     history = state['messages']
 
     if not prompt:
