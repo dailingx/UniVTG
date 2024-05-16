@@ -116,7 +116,9 @@ def forward(model, save_dir, query):
     
 def extract_vid(vid_path, state):
     history = state['messages']
+    print("do vid2clip start")
     vid_features = vid2clip(clip_model, vid_path, args.save_dir)
+    print("do vid2clip end")
     history.append({"role": "user", "content": "Finish extracting video features."}) 
     history.append({"role": "system", "content": "Please Enter the text query."}) 
     chat_messages = [(history[i]['content'], history[i+1]['content']) for i in range(0, len(history),2)]
