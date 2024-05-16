@@ -85,6 +85,8 @@ class VideoLoader(Dataset):
                 info = self._get_video_info(video_path)
                 h, w = info["height"], info["width"]
             except Exception:
+                import traceback
+                print(traceback.format_exc())
                 print('ffprobe failed at: {}'.format(video_path))
                 return {'video': th.zeros(1), 'input': video_path,'info': {}}
             try:
