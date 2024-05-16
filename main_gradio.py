@@ -115,6 +115,7 @@ def forward(model, save_dir, query):
     return '\n'.join([q_response, mr_response, hl_response])
     
 def extract_vid(vid_path, state):
+    print("do extract_vid start")
     history = state['messages']
     print("do vid2clip start")
     vid_features = vid2clip(clip_model, vid_path, args.save_dir)
