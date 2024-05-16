@@ -96,6 +96,7 @@ class VideoLoader(Dataset):
                         fps = 2/max(int(duration), 1)
                         print(duration, fps)
                 except Exception:
+                    print(f"exp3")
                     fps = self.framerate
                 cmd = (
                     ffmpeg
@@ -118,8 +119,11 @@ class VideoLoader(Dataset):
                     [-1, height, width, 3])
                 video = th.from_numpy(video.astype('float32'))
                 video = video.permute(0, 3, 1, 2)
+                print(f"success to final")
             except:
+                print(f"exp1")
                 return {'video': th.zeros(1), 'input': video_path,'info': {}}
         else:
+            print(f"exp2")
             video = th.zeros(1)
         return {'video': video, 'input': video_path}
