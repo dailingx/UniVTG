@@ -43,6 +43,7 @@ def vid2clip(model, vid_path, output_file,
         for k, data in enumerate(tqdm(loader)):
             input_file = data['input'][0]
             print(f"loader data is: {data}")
+            print(f"video shape: {data['video'].shape}, len: {len(data['video'].shape)}")
             if os.path.isfile(output_file):
                 # print(f'Video {input_file} already processed.')
                 continue
